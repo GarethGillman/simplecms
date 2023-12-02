@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#page-form-wrap {
+    @apply p-8;
+
+    h1 {
+        @apply
+        mb-4 text-black text-xl
+        dark:text-white;
+    }
+
+    .alert {
+
+    }
+
+    form {
+        @apply 
+        flex flex-col w-full
+        md:flex-row md:flex-wrap;
+
+        .input-wrapper {
+            @apply
+            p-4;
+
+            input[type=email],
+            input[type=text] {
+                @apply w-full;
+            }
+
+            select {
+                @apply w-full;
+            }
+
+            textarea {
+                @apply w-full;
+            }
+        }
+
+        #left-col {
+            @apply 
+            flex flex-col pr-[20px] w-9/12;
+
+            label {
+                @apply
+                absolute h-[1px] overflow-hidden whitespace-nowrap w-[1px];
+                clip: rect(0 0 0 0);
+                clip-path: inset(50%);
+            }
+
+            textarea {
+                @apply h-[400px];
+            }
+        }
+
+        #right-col {
+            @apply border-l pl-[20px] w-3/12;
+
+            label {
+                @apply
+                block mb-1 text-black w-full
+                dark:text-white;
+            }
+
+            #draft-page {
+                @apply
+                px-3 py-1 rounded-sm
+                dark:bg-white text-black; 
+            }
+
+            button {
+                @apply
+                bg-slate-600 capitalize px-6 py-2 text-white;
+            }
+        }
+    }
+}
