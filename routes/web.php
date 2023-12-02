@@ -21,21 +21,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
-    Route::get('/pages', [PageController::class, 'index'])->name('pages.index');
-    Route::get('/pages/new', [PageController::class, 'form'])->name('pages.new');
-    Route::post('/pages/create', [PageController::class, 'create'])->name('pages.create');
-    Route::get('/pages/edit/{id}', [PageController::class, 'edit'])->name('pages.edit');
-    Route::get('/{slug}', [PageController::class, 'view'])->name('pages.view');
+    Route::get('/dashboard/pages', [PageController::class, 'index'])->name('pages.index');
+    Route::get('/dashboard/pages/new', [PageController::class, 'form'])->name('pages.new');
+    Route::post('/dashboard/pages/create', [PageController::class, 'create'])->name('pages.create');
+    Route::get('/dashboard/pages/edit/{id}', [PageController::class, 'edit'])->name('pages.edit');
+    Route::get('/dashboard/pages/delete/{id}', [PageController::class, 'delete'])->name('pages.delete');
+    Route::post('/dashboard/pages/update/{id}', [PageController::class, 'update'])->name('pages.update');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get('/page/{slug}', [PageController::class, 'view'])->name('pages.view');
 
 require __DIR__.'/auth.php';

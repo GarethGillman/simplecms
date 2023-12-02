@@ -12,7 +12,17 @@
     }
 
     .alert {
+        @apply 
+        border-2 mb-4 px-4 py-2
+        dark:bg-slate-700 dark:text-white;
+        
+        &.error {
+            @apply border-red-700;
+        }
 
+        &.success {
+            @apply border-green-700;
+        }
     }
 
     form {
@@ -22,19 +32,25 @@
 
         .input-wrapper {
             @apply
-            p-4;
+            py-4;
 
             input[type=email],
             input[type=text] {
-                @apply w-full;
+                @apply
+                w-full
+                dark:focus:border-slate-900 dark:focus:ring-slate-900;
             }
 
             select {
-                @apply w-full;
+                @apply 
+                w-full
+                dark:focus:border-slate-900 dark:focus:ring-slate-900;
             }
 
             textarea {
-                @apply w-full;
+                @apply 
+                w-full
+                dark:focus:border-slate-900 dark:focus:ring-slate-900;
             }
         }
 
@@ -55,7 +71,7 @@
         }
 
         #right-col {
-            @apply border-l pl-[20px] w-3/12;
+            @apply border-l border-l-gray-700 pl-[20px] w-3/12;
 
             label {
                 @apply
@@ -71,8 +87,86 @@
 
             button {
                 @apply
-                bg-slate-600 capitalize px-6 py-2 text-white;
+                bg-slate-600 capitalize px-6 py-2 text-white
+                hover:bg-slate-700;
             }
         }
+    }
+}
+
+#page-table {
+    @apply p-8;
+
+    #page-header {
+        @apply
+        flex flex-col
+        md:flex-row md:flex-wrap md:items-center md:justify-between;
+
+        h1 {
+            @apply
+            mb-4 text-2xl
+            dark:text-white;
+        }
+
+        .button {
+            @apply
+            duration-300 px-3 py-1 rounded-sm
+            dark:bg-gray-300 dark:text-black
+            dark:hover:bg-gray-400;
+        }
+    }
+
+    .admin-table {
+        @apply w-full;
+
+        thead {
+            @apply bg-slate-700;
+
+            th {
+                @apply 
+                p-2 text-left
+                dark:text-white;
+            }
+        }
+
+        tbody {
+            tr {
+                @apply
+                odd:bg-gray-300
+                even:bg-gray-400;
+
+                td {
+                    @apply p-2 text-white;
+
+                    &#actions-row {
+                        @apply
+                        flex flex-col
+                        md:flex-row md:flex-wrap md:gap-3;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#error-page {
+    @apply p-8;
+
+    h1 {
+        @apply
+        mb-4 text-2xl
+        dark:text-white;
+    }
+
+    p {
+        @apply
+        mb-4
+        dark:text-white;
+    }
+
+    .button {
+        @apply
+        px-6 py-2 rounded-sm
+        dark:bg-white text-black;
     }
 }

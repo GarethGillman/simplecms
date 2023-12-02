@@ -23,7 +23,7 @@
                         </div>
                     @endif
                     
-                    <form action="{{ url('pages/create') }}" method="POST">
+                    <form action="{{ url('dashboard/pages/create') }}" method="POST">
                         @csrf
 
                         <div id="left-col">
