@@ -135,7 +135,11 @@ class PageController extends Controller
             $page_request = DB::table('pages')->where('slug', $page_slug)->count();
             if( $page_request > 0 ) {
                 $page_request = DB::table('pages')->where('slug', $page_slug)->first();
-                return view('dashboard.pages.view', ['page' => $page_request]);
+                if( $page_request->status == 'published' ) {
+                    return view('dashboard.pages.view', ['page' => $page_request]);
+                } else {
+                    return view('theme.errors.404', ['page' => $page_slug]);
+                }
             } else {
                 return view('theme.errors.404', ['page' => $page_slug]);
             }

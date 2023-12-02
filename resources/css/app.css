@@ -2,6 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+#dashboard-nav {
+    #theme-toggle {
+        #light-toggle {
+            @apply
+            hidden;
+        }
+        
+        #dark-toggle {
+            @apply block;
+        }
+    }
+}
+.dark {
+    #dashboard-nav {
+        #theme-toggle {
+            #light-toggle {
+                @apply block
+            }
+            #dark-toggle {
+                @apply hidden;
+            }
+        }
+    }
+}
+
 #page-form-wrap {
     @apply p-8;
 
