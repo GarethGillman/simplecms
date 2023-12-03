@@ -33,9 +33,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/pages/delete/{id}', [PageController::class, 'delete'])->name('pages.delete');
     Route::post('/dashboard/pages/update/{id}', [PageController::class, 'update'])->name('pages.update');
 
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/dashboard/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/dashboard/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/dashboard/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 Route::get('/page/{slug}', [PageController::class, 'view'])->name('pages.view');

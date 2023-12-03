@@ -184,6 +184,12 @@ body {
                 dark:text-gray-300;
             }
 
+            h2 {
+                @apply
+                mb-4 text-neutral-700 text-xl
+                dark:text-gray-300;
+            }
+
             p {
                 @apply
                 mb-4 text-neutral-700 text-base
@@ -283,6 +289,18 @@ body {
                         dark:bg-white text-black; 
                     }
                 }
+
+                #form-footer {
+                    @apply
+                    flex flex-row gap-4 items-center justify-start;
+
+                    #text-link {
+                        @apply 
+                        underline text-sm text-neutral-600
+                        hover:text-neutral-800
+                        dark:text-gray-300  dark:hover:text-gray-100 dark:focus:ring-offset-gray-800
+                    }
+                }
             }
         }
 
@@ -295,16 +313,45 @@ body {
                 form {
                     @apply
                     flex-col;
+                }
+            }
+        }
 
-                    #form-footer {
+        &.profile {
+            .container {
+
+                h1 {
+                    @apply
+                    font-bold mb-8
+                    md:text-center;
+                }
+
+                #columns {
+                    @apply
+                    flex flex-col gap-8
+                    md:flex-row md:flex-wrap md:gap-0;
+
+                    #left-col {
                         @apply
-                        flex flex-row gap-4 items-center justify-start;
+                        w-full
+                        md:pr-4 md:w-2/4;
 
-                        #text-link {
-                            @apply 
-                            underline text-sm text-neutral-600
-                            hover:text-neutral-800
-                            dark:text-gray-300  dark:hover:text-gray-100 dark:focus:ring-offset-gray-800
+                        form {
+                            @apply flex-col;
+                        }
+                    }
+
+                    #right-col {
+                        @apply 
+                        w-full
+                        md:pl-4 md:w-2/4;
+
+                        form {
+                            @apply flex-col;
+                        }
+
+                        #delete-account-wrap {
+                            @apply mt-8;
                         }
                     }
                 }

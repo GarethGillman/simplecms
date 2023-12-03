@@ -12,12 +12,12 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @if( str_contains( url()->current(), '/dashboard' ) || str_contains( url()->current(), '/login' ) || str_contains( url()->current(), '/register' ) || str_contains( url()->current(), '/forgot-password' ) )
+        @if( str_contains( url()->current(), '/dashboard' ) || str_contains( url()->current(), '/login' ) || str_contains( url()->current(), '/register' ) || str_contains( url()->current(), '/forgot-password' ) || str_contains( url()->current(), '/profile' ) )
             @vite(['resources/css/dashboard.css', 'resources/js/dashboard.js'])
         @endif
     </head>
     <body>
-        @if( str_contains( url()->current(), '/dashboard' ) || str_contains( url()->current(), '/login' ) || str_contains( url()->current(), '/register' ) || str_contains( url()->current(), '/forgot-password' ) )
+    @if( str_contains( url()->current(), '/dashboard' ) || str_contains( url()->current(), '/login' ) || str_contains( url()->current(), '/register' ) || str_contains( url()->current(), '/forgot-password' ) || str_contains( url()->current(), '/profile' ) )
 
             @include('dashboard.parts.navigation')
 
