@@ -32,7 +32,9 @@
                                 <td id="actions-row">
                                     <a href="{{ url('dashboard/pages/edit', $page->id) }}">Edit</a>
                                     <a href="{{ url('dashboard/pages/delete', $page->id) }}">Delete</a>
-                                    <a href="{{ url('page', $page->slug) }}" target="_blank">View</a>
+                                    @if( $page->status == 'published' )
+                                        <a href="{{ url('page', $page->slug) }}" target="_blank">View</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
