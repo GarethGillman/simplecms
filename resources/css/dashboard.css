@@ -10,7 +10,7 @@ body {
 
 #dashboard-nav {
     @apply 
-    bg-white py-4 relative
+    bg-white border border-b-transparent py-4 relative
     dark:bg-gray-900;
 
     .container {
@@ -144,7 +144,8 @@ body {
 
     &.header-fixed {
         @apply
-        bg-gray-900 duration-300 ease-in-out fixed top-0 transition w-full;
+        bg-white border-b-gray-200 duration-300 ease-in-out fixed top-0 transition w-full
+        dark:bg-gray-900 dark:border-b-slate-600;
     }
 }
 
