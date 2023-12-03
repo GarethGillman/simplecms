@@ -12,17 +12,21 @@
 
         <!-- Menu Links -->
         <nav class="hidden md:flex" id="menu-links">
-            <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                <span>{{ __('Dashboard') }}</span>
-            </x-nav-link>
+            @if( Auth::check() )
+                <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                    <span>{{ __('Dashboard') }}</span>
+                </x-nav-link>
 
-            <x-nav-link :href="route('pages.index')" :active="request()->routeIs('pages.index')">
-                <span>{{ __('Pages') }}</span>
-            </x-nav-link>
+                <x-nav-link :href="route('pages.index')" :active="request()->routeIs('pages.index')">
+                    <span>{{ __('Pages') }}</span>
+                </x-nav-link>
 
-            <x-nav-link :href="route('pages.index')" :active="request()->routeIs('pages.home')">
-                <span>{{ __('Settings') }}</span>
-            </x-nav-link>
+                <x-nav-link :href="route('pages.index')" :active="request()->routeIs('pages.home')">
+                    <span>{{ __('Settings') }}</span>
+                </x-nav-link>
+            @else
+
+            @endif
         </nav>
         <!-- End Menu Links -->
 
@@ -58,6 +62,14 @@
                         </form>
                     </div>
                 </div>
+            @else
+                <a class="text-link" id="register-link" href="{{ route('register') }}">
+                    {{ __('Register') }}
+                </a>
+
+                <a class="text-link" id="login-link" href="{{ route('login') }}">
+                    {{ __('Register') }}
+                </a>
             @endif
             <!-- End User Profile -->
 
