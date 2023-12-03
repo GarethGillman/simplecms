@@ -169,20 +169,20 @@ body {
 #main-content {
     @apply px-4 py-8;
 
-    #pages-form-wrap {
+    .wrapper {
         @apply 
         bg-white border border-gray-200 max-w-7xl mx-auto rounded-xl
         dark:bg-gray-900 dark:border-gray-700;
 
         .container {
             @apply
-            p-6 
+            mx-auto p-6 
             lg:p-8;
 
             h1 {
                 @apply
-                mb-4 text-neutral-700 text-xl
-                dark:text-gray-300;
+                mb-6 text-xl
+                dark:text-white;
             }
 
             h2 {
@@ -197,6 +197,30 @@ body {
                 dark:text-gray-300;
             }
 
+            .button {
+                @apply
+                bg-neutral-600 capitalize inline-block px-6 py-2 rounded-md text-gray-300
+                hover:bg-neutral-800
+                dark:bg-slate-600
+                dark:hover:bg-slate-800;
+            }
+        }
+    }
+
+    .narrow {
+        @apply max-w-3xl;
+
+        .container {
+            form {
+                @apply
+                flex-col;
+            }
+        }
+    }
+
+    .form {
+        .container {
+          
             .alert {
                 @apply 
                 bg-gray-200 border-2 mb-4 px-4 py-2 text-neutral-700
@@ -213,8 +237,7 @@ body {
 
             form {
                 @apply 
-                flex flex-col-reverse w-full
-                md:flex-row md:flex-wrap;
+                flex flex-col w-full;
 
                 .input-wrapper {
                     @apply
@@ -250,76 +273,36 @@ body {
 
                     select {
                         @apply 
-                        w-full
-                        focus:border-slate-500 focus:ring-slate-500;
+                        bg-gray-300 text-neutral-600 w-full
+                        focus:border-slate-500 focus:ring-slate-500
+                        dark:bg-slate-600 dark:text-gray-300;
+
+                        option {
+                            @apply
+                            bg-gray-300 text-neutral-600 w-full
+                            focus:border-slate-500 focus:ring-slate-500
+                            dark:bg-slate-600 dark:text-gray-300;
+                        }
                     }
 
                     textarea {
                         @apply 
-                        w-full
-                        focus:border-slate-500 focus:ring-slate-500;
+                        bg-gray-300 text-neutral-600 w-full
+                        focus:border-slate-500 focus:ring-slate-500
+                        dark:bg-slate-600 dark:text-gray-300;
                     }
                 }
 
                 button {
                     @apply
-                    bg-neutral-600 capitalize px-6 py-2 rounded-md text-gray-300
+                    bg-neutral-600 capitalize inline-block px-6 py-2 rounded-md text-gray-300 w-auto
                     hover:bg-neutral-800
                     dark:bg-slate-600
                     dark:hover:bg-slate-800;
                 }
-
-                #left-col {
-                    @apply 
-                    flex flex-col w-full
-                    md:pr-[20px] md:w-8/12
-                    lg:w-9/12;
-
-                    textarea {
-                        @apply h-[400px];
-                    }
-                }
-
-                #right-col {
-                    @apply 
-                    border-b border-b-gray-700 w-full
-                    md:border-b-0 md:border-l md:border-l-gray-700 md:pl-[20px] md:w-4/12
-                    lg:w-3/12;
-
-                    #draft-page {
-                        @apply
-                        px-3 py-1 rounded-sm
-                        dark:bg-white text-black; 
-                    }
-                }
-
-                #form-footer {
-                    @apply
-                    flex flex-row gap-4 items-center justify-start;
-
-                    #text-link {
-                        @apply 
-                        underline text-sm text-neutral-600
-                        hover:text-neutral-800
-                        dark:text-gray-300  dark:hover:text-gray-100 dark:focus:ring-offset-gray-800
-                    }
-                }
             }
         }
-
-        /* Register Form */
-        &.register,
-        &.login {
-            @apply max-w-3xl;
-
-            .container {
-                form {
-                    @apply
-                    flex-col;
-                }
-            }
-        }
-
+        
         &.profile {
             .container {
 
@@ -363,34 +346,11 @@ body {
     }
 
     #pages-index {
-        @apply 
-        bg-white border border-gray-200 max-w-7xl mx-auto rounded-xl
-        dark:bg-gray-900 dark:border-gray-700;
-
         .container {
-            @apply
-            p-6 
-            lg:p-8;
 
             #page-header {
-                @apply mb-4;
-
                 @apply
                 flex flex-row flex-wrap items-center justify-between w-full;
-
-                h1 {
-                    @apply
-                    text-2xl
-                    dark:text-white;
-                }
-
-                .button {
-                    @apply
-                    bg-gray-100 border border-gray-200 duration-300 inline-block px-3 py-2 rounded-md text-gray-500 text-sm
-                    hover:text-gray-900
-                    dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400
-                    dark:hover:text-gray-300;
-                }
             }
 
             #table-wrapper {
@@ -442,65 +402,75 @@ body {
         }
     }
 
-    #error-page {
-        @apply 
-        bg-white border border-gray-200 max-w-7xl mx-auto p-8 rounded-xl
-        dark:bg-gray-900 dark:border-gray-700;
-    
-        h1 {
-            @apply
-            mb-4 text-2xl
-            dark:text-white;
-        }
+    #profile-form {
+        .container {
+            #columns {
+                @apply
+                flex flex-col gap-8
+                md:flex-row md:flex-wrap md:gap-0;
 
-        p {
-            @apply
-            mb-4
-            dark:text-white;
-        }
+                #left-col {
+                    @apply 
+                    flex flex-col w-full
+                    md:pr-[20px] md:w-2/4;
 
-        .button {
-            @apply
-            bg-neutral-600 capitalize inline-block px-6 py-2 rounded-md text-gray-300
-            hover:bg-neutral-800
-            dark:bg-slate-600
-            dark:hover:bg-slate-800;
-        }
-    }
-}
+                    textarea {
+                        @apply h-[400px];
+                    }
+                }
 
-#register-wrapper {
-    @apply 
-    bg-white border border-gray-200 max-w-7xl mx-auto rounded-xl
-    dark:bg-gray-900 dark:border-gray-700;
-
-    .container {
-        @apply
-        p-6 
-        lg:p-8;
-
-        h1 {
-            @apply
-            mb-4 text-neutral-700 text-xl
-            dark:text-gray-300;
+                #right-col {
+                    @apply 
+                    border-b border-b-gray-700 w-full
+                    md:border-b-0 md:border-l md:border-l-gray-700 md:pl-[20px] md:w-2/4;
+                }
+            }
         }
     }
-}
 
-#login-wrapper {
-    @apply 
-    bg-white border border-gray-200 max-w-7xl mx-auto rounded-xl
-    dark:bg-gray-900 dark:border-gray-700;
+    #pages-form {
+        .container {
+            #columns {
+                @apply
+                flex flex-col gap-8
+                md:flex-row md:flex-wrap md:gap-0;
 
-    .container {
-        @apply
-        p-6 
-        lg:p-8;
+                #left-col {
+                    @apply 
+                    flex flex-col w-full
+                    md:pr-[20px] md:w-8/12
+                    lg:w-9/12;
 
-        h1 {
-            @apply
-            mb-4 text-neutral-700 text-xl
-            dark:text-gray-300;
+                    textarea {
+                        @apply h-[400px];
+                    }
+                }
+
+                #right-col {
+                    @apply 
+                    border-b border-b-gray-700 w-full
+                    md:border-b-0 md:border-l md:border-l-gray-700 md:pl-[20px] md:w-4/12
+                    lg:w-3/12;
+
+                    #draft-page {
+                        @apply
+                        px-3 py-1 rounded-sm
+                        dark:bg-white text-black; 
+                    }
+                }
+
+                #form-footer {
+                    @apply
+                    flex flex-row gap-4 items-center justify-start;
+
+                    #text-link {
+                        @apply 
+                        underline text-sm text-neutral-600
+                        hover:text-neutral-800
+                        dark:text-gray-300  dark:hover:text-gray-100 dark:focus:ring-offset-gray-800
+                    }
+                }
+            }
         }
     }
 }

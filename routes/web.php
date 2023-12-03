@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 // Controllers
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ use App\Http\Controllers\PageController;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/setup', [SettingsController::class, 'setup'])->name('setup');
+Route::post('/setup/save', [SettingsController::class, 'save'])->name('setup.save');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {

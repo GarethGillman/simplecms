@@ -2,7 +2,7 @@
 
 @section('dashboard')
 
-<section id="pages-index">
+<section class="wrapper" id="pages-index">
     <div class="container">
                 
         <div id="page-header">

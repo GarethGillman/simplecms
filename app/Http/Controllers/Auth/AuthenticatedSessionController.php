@@ -9,15 +9,21 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use DB;
 
 class AuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
      */
-    public function create(): View
+    public function create()
     {
-        return view('auth.login');
+        $setup = DB::table('settings')->where('id', 1)->first()->setup;
+        if( $setup === 'true' ) {
+            return redirect('setup');
+        } else {
+            return view('auth.login');
+        }
     }
 
     /**

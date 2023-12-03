@@ -2,7 +2,7 @@
 
 @section('dashboard')
 
-<section class="register" id="pages-form-wrap">
+<section class="wrapper narrow form" id="register-form">
     <div class="container">
 
         <h1>Register</h1>

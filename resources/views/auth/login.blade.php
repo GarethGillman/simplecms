@@ -2,7 +2,7 @@
 
 @section('dashboard')
 
-<section class="login" id="pages-form-wrap">
+<section class="wrapper narrow form" id="login-form">
     <div class="container">
 
         <h1>{{ __('Login') }}</h1>

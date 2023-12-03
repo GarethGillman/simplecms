@@ -2,7 +2,7 @@
 
 @section('dashboard')
 
-<section class="error-404" id="error-page">
+<section class="wrapper" id="error-page">
     <div class="container">
 
         <h1>{{ ('Error 404') }}</h1>

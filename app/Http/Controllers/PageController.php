@@ -103,14 +103,6 @@ class PageController extends Controller
             }
          }
  
-        //  $page->title = ;
-        //  $page->slug = $request->input('page_urlslug');
-        //  $page->content = $request->input('page_content');
-        //  $page->seotitle = $request->input('page_seotitle');
-        //  $page->seodesc = $request->input('page_seodesc');
-        //  $page->status = $request->input('page_status');
-        //  $page->save();
- 
          return redirect('dashboard/pages/edit/'.$page->id)->with('success', 'Page Created');
     }
 

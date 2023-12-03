@@ -2,7 +2,7 @@
 
 @section('dashboard')
                 
-<section class="profile" id="pages-form-wrap">
+<section class="wrapper form" id="profile-form">
     <div class="container">
 
         <h1>{{ ('Edit Profile') }}</h1>

@@ -12,20 +12,34 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
         <!-- Scripts -->
-        @if( str_contains( url()->current(), '/dashboard' ) || str_contains( url()->current(), '/login' ) || str_contains( url()->current(), '/register' ) || str_contains( url()->current(), '/forgot-password' ) || str_contains( url()->current(), '/profile' ) )
-            @vite(['resources/css/dashboard.css', 'resources/js/dashboard.js'])
-        @endif
+        @php
+        $dashboard_pages = array(
+            'dashboard',
+            'login',
+            'register',
+            'forgot-password',
+            'profile',
+            'setup'
+        );
+        @endphp
+
+        @foreach( $dashboard_pages as $page )
+            @if( str_contains( url()->current(), $page ) )
+                @vite(['resources/css/dashboard.css', 'resources/js/dashboard.js'])
+            @endif
+        @endforeach
     </head>
     <body>
-    @if( str_contains( url()->current(), '/dashboard' ) || str_contains( url()->current(), '/login' ) || str_contains( url()->current(), '/register' ) || str_contains( url()->current(), '/forgot-password' ) || str_contains( url()->current(), '/profile' ) )
+        @foreach( $dashboard_pages as $page )
+            @if( str_contains( url()->current(), $page ) )
+                @include('dashboard.parts.navigation')
 
-            @include('dashboard.parts.navigation')
+                <main id="main-content">
+                    @yield('dashboard')
+                </main>
 
-            <main id="main-content">
-                @yield('dashboard')
-            </main>
-
-        @endif
+            @endif
+        @endforeach
 
     </body>
 </html>
