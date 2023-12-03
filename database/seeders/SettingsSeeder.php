@@ -16,6 +16,7 @@ class SettingsSeeder extends Seeder
     {
         DB::table('settings')->insert([
             'website_name' => 'A SimpleCMS Website',
+            'registrations' => 'true',
             'setup' => 'false',
         ]);
     }

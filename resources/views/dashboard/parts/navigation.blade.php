@@ -62,12 +62,18 @@
                     </div>
                 </div>
             @else
-                <a class="text-link" id="register-link" href="{{ route('register') }}">
-                    {{ __('Register') }}
-                </a>
+                @php
+                $registrations = DB::table('settings')->where('id', 1)->first()->registrations;
+                @endphp
+
+                @if( $registrations === 'true' )
+                    <a class="text-link" id="register-link" href="{{ route('register') }}">
+                        {{ __('Register') }}
+                    </a>
+                @endif
 
                 <a class="text-link" id="login-link" href="{{ route('login') }}">
-                    {{ __('Register') }}
+                    {{ __('Login') }}
                 </a>
             @endif
             <!-- End User Profile -->

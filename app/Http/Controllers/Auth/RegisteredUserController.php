@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use DB;
 
 class RegisteredUserController extends Controller
 {
@@ -20,7 +21,13 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+
+        $registrations = DB::table('settings')->where('id', 1)->first()->registrations;
+        if( $registrations === 'true' ) {
+            return view('auth.register');
+        } else {
+            return view('dashboard.errors.404');
+        }
     }
 
     /**
