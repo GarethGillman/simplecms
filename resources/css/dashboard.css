@@ -262,8 +262,10 @@ body {
 
                 button {
                     @apply
-                    bg-slate-600 capitalize px-6 py-2 rounded-md text-gray-300
-                    hover:bg-slate-700;
+                    bg-neutral-600 capitalize px-6 py-2 rounded-md text-gray-300
+                    hover:bg-neutral-800
+                    dark:bg-slate-600
+                    dark:hover:bg-slate-800;
                 }
 
                 #left-col {
