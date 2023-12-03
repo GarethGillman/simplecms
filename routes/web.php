@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('dashboard.index');
     })->name('dashboard');
 
     Route::get('/dashboard/pages', [PageController::class, 'index'])->name('pages.index');
