@@ -444,7 +444,7 @@ body {
 
     #error-page {
         @apply 
-        bg-white border border-gray-200 max-w-7xl mx-auto rounded-xl
+        bg-white border border-gray-200 max-w-7xl mx-auto p-8 rounded-xl
         dark:bg-gray-900 dark:border-gray-700;
     
         h1 {
@@ -461,8 +461,10 @@ body {
 
         .button {
             @apply
-            px-6 py-2 rounded-sm
-            dark:bg-white text-black;
+            bg-neutral-600 capitalize inline-block px-6 py-2 rounded-md text-gray-300
+            hover:bg-neutral-800
+            dark:bg-slate-600
+            dark:hover:bg-slate-800;
         }
     }
 }
