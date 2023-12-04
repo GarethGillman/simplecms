@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Hash;
 
 class SettingsController extends Controller
 {
@@ -21,17 +22,37 @@ class SettingsController extends Controller
             'setup' => 'required',
             'settings_website_name' => 'required|max:128',
             'setting_registrations' => 'required',
-         ]);
- 
-         $affected = 
-         DB::table('settings')
-         ->where('id', 1)
-         ->update([
-            'setup' => $request->input('setup'),
-            'website_name' => $request->input('settings_website_name'),
-            'registrations' => $request->input('setting_registrations')
+            'name' => 'required|max:32',
+            'email' => 'required|max:128',
+            'password' => 'required|min:10',
+            'password_confirmation' => 'required',
         ]);
+
+        if( $request->input('password') === $request->input('password_confirmation') ) {
  
-         return redirect('/login');
+            $affected = 
+                DB::table('settings')
+                ->where('id', 1)
+                ->update([
+                    'setup' => $request->input('setup'),
+                    'website_name' => $request->input('settings_website_name'),
+                    'registrations' => $request->input('setting_registrations')
+                ]
+            );
+
+            $admin_user = 
+                DB::table('users')
+                ->insert([
+                    'name' => $request->input('setup'),
+                    'email' => $request->input('setup'),
+                    'password' => Hash::make($request->input('setup')),
+                    'role' => 'admin'
+                ]
+            );
+            
+            return redirect('/login');
+        } else {
+            return Redirect::back()->withErrors(['error' => 'Passwords do not match']);
+        }
     }
 }

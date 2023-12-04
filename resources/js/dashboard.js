@@ -33,13 +33,13 @@ if( user_profile_toggle ) {
 }
 
 // Toggle Mobile Nav
-const mobile_nav_toggle = document.getElementById('nav-toggle');
-const menu_links = document.getElementById('menu-links');
-mobile_nav_toggle.addEventListener('click', function(e){
-    e.preventDefault();
-    menu_links.classList.toggle('hidden');
-    menu_links.classList.toggle('flex');
-});
+// const mobile_nav_toggle = document.getElementById('nav-toggle');
+// const menu_links = document.getElementById('menu-links');
+// mobile_nav_toggle.addEventListener('click', function(e){
+//     e.preventDefault();
+//     menu_links.classList.toggle('hidden');
+//     menu_links.classList.toggle('flex');
+// });
 
 // Sticky Header
 const header = document.getElementById('dashboard-nav');
@@ -66,4 +66,10 @@ if( page_Url.includes('new') ) {
         let page_status_value = page_status.value;
         submit_btn.innerHTML = page_status_value;
     });
+} else if( page_Url.includes('setup') ) {
+    let user_pw = document.getElementById('userpw');
+    let userpw_confirm = document.getElementById('userpw_confirm');
+    let randomPasswordHash = Math.random().toString(36).substring(2, 15);
+    user_pw.value = randomPasswordHash;
+    userpw_confirm.value = randomPasswordHash;
 }
