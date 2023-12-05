@@ -27,8 +27,12 @@ Route::post('/setup/save', [SettingsController::class, 'save'])->name('setup.sav
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard.index');
+        return redirect('/dashboard/home');
     })->name('dashboard');
+
+    Route::get('/dashboard/home', function () {
+        return view('dashboard.index');
+    })->name('dashboard/home');
 
     Route::get('/dashboard/pages', [PageController::class, 'index'])->name('pages.index');
     Route::get('/dashboard/pages/new', [PageController::class, 'form'])->name('pages.new');
