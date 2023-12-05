@@ -43,9 +43,9 @@ class SettingsController extends Controller
             $admin_user = 
                 DB::table('users')
                 ->insert([
-                    'name' => $request->input('setup'),
-                    'email' => $request->input('setup'),
-                    'password' => Hash::make($request->input('setup')),
+                    'name' => $request->input('name'),
+                    'email' => $request->input('email'),
+                    'password' => Hash::make($request->input('password')),
                     'role' => 'admin'
                 ]
             );
