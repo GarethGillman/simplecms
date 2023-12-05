@@ -2,7 +2,7 @@
 
 @section('dashboard')
 
-<section class="forgot-pw" id="pages-form-wrap">
+<section class="wrapper form" id="forgot-pw">
     <div class="container">
 
         <h1>{{ __('Forgot Password') }}</h1>
