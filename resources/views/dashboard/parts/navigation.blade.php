@@ -20,7 +20,7 @@
                     <span>{{ __('Pages') }}</span>
                 </x-nav-link>
 
-                <x-nav-link :href="route('pages.index')" :active="request()->routeIs('pages.home')">
+                <x-nav-link :href="route('settings.index')" :active="request()->routeIs('settings.index')">
                     <span>{{ __('Settings') }}</span>
                 </x-nav-link>
             @else

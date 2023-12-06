@@ -14,12 +14,11 @@
         <!-- Scripts -->
         @php
         $dashboard_pages = array(
-            'dashboard/home',
+            'dashboard',
             'login',
             'register',
+            'setup',
             'forgot-password',
-            '/dashboard/profile',
-            'setup'
         );
         @endphp
 

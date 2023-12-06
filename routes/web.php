@@ -23,7 +23,9 @@ Route::get('/', function () {
 });
 
 Route::get('/setup', [SettingsController::class, 'setup'])->name('setup');
-Route::post('/setup/save', [SettingsController::class, 'save'])->name('setup.save');
+Route::post('/setup/save', [SettingsController::class, 'setupSave'])->name('setup.save');
+
+Route::get('/page/{slug}', [PageController::class, 'view'])->name('pages.view');
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function () {
@@ -44,8 +46,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/dashboard/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/dashboard/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
 
-Route::get('/page/{slug}', [PageController::class, 'view'])->name('pages.view');
+    Route::get('/dashboard/settings/', [SettingsController::class, 'view'])->name('settings.index');
+    Route::post('/dashboard/settings/save', [SettingsController::class, 'save'])->name('settings.update');
+
+});
 
 require __DIR__.'/auth.php';

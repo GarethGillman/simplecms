@@ -17,7 +17,7 @@
             </div>
         @endif
                     
-        <form action="{{ url('dashboard/pages/create') }}" method="POST">
+        <form action="{{ route('pages.create') }}" method="POST">
             @csrf
 
             <div id="columns">
